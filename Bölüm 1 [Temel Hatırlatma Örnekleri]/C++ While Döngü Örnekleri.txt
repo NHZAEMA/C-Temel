@@ -1,0 +1,263 @@
+//1. *******************************
+//while döngüsü ile sonsuz bir döngü yaptik
+#include <iostream>
+using namespace std;
+int main()
+{
+  int x=1;
+  while(x)
+     cout<< "x= "<< x++<< endl;
+  return 0;
+}
+
+//2.******************************
+
+//Bu programda da klavyeden girilen sayilarin toplami 20'den büyük olunca program Toplam olarak söylüyor.
+//while döngüsü ile klavyeden girilen sayilari topluyor
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int sayi, top = 0;
+
+  while (top<20)
+  {
+    cout<<"Bir sayi gir:";
+    cin>>sayi;
+    top+=sayi;
+  }
+  cout<<"Toplam="<<top<<endl;
+  return 0;
+}
+
+//3.**********************************
+
+// while döngüsü ile girilen 10 ogrencinin notlarin ortalamasini aldik.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int toplam=0, sayac=1, not, ortalama; 
+
+  while ( sayac <= 10 )
+  {
+    cout << "Notu giriniz: ";
+    cin >>not; 
+    toplam += not;
+    sayac++; 
+  }
+
+  ortalama = toplam / 10;
+  cout << "Sinif ortalamasi = " << ortalama << endl;
+
+  return 0;
+}
+
+//4.***************************************
+
+// while ile faktoriyel hesaplama
+#include <iostream>
+using namespace std;
+int main()
+{
+  int sayi;
+  long int faktoriyel=1;
+  cout<<"Bir sayi giriniz: ";
+  cin>>sayi;
+  cout<<sayi<<" in Faktöriyeli: ";
+
+  while (sayi > 1)
+  {  
+    faktoriyel *= sayi;
+    sayi--;
+  }
+  cout<<faktoriyel<<endl;
+  
+  return 0;
+}
+
+//5.**************************************
+
+// while if-else ile bir maas vergi uygulamasi
+#include <iostream.h> 
+using namespace std;
+int main( )
+{
+  long double maas, net, vergi = 0.0; 		// maas,net,vergi degiskenlerini tanimladik
+
+  cout<< "Lutfen maasinizi giriniz: ";  	// maasi giriyoruz
+  cin>> maas; 					// maasi programa aliyoruz
+
+  while( maas >= 0.0 ) 				// maasin koslunu yaziyorus döngüye
+  { 
+     if( maas <= 25000 ) 			// maas 25 binden az ise
+        vergi = 0.0;
+     else 					// vergi yok
+       if( maas < 50000 ) 			// maas 50 binden az ise 
+          vergi = maas * 0.10; 			// vergi %10
+       else 					// maas 50 binden fazla ise
+          vergi = maas * 0.20; 			// vergi %20
+
+     net = maas - vergi; 			// net maasimiz vergi düsünce çikar
+     cout<< "Ödenmesi Gereken vergi " << vergi << endl; 	// vergi ekranda
+     cout<< "Net maasiniz: " << net << endl; 			// geriye kalan maasimiz
+
+     cout<< "Lütfen maasinizi giriniz: "; 	// bir dahaki ayki yeni maasimiz
+     cin>> maas; 				// maasi program aliyor
+  }
+
+  return 0; 
+}
+
+//6.*************************************
+
+//do-while döngüsünü kullandik
+#include <iostream>
+using namespace std;
+int main ()
+{
+  long x;
+  do {
+    cout<< "Bir sayi giriniz ( Durdurmak için 0 ) : ";
+    cin>> x;
+    cout<< "Girdiginiz sayinin karesi: " << x*x << "\n";
+    } while (x != 0);
+  
+  return 0;
+}
+
+//7.**************************************
+
+//do-while döngüsünü kullandik
+#include <iostream>
+using namespace std;
+int main ()
+{
+  int x, top=0;
+  do {
+      cout<< "Bir sayi giriniz ( Durdurmak için 0 ) : ";
+      cin>> x;
+      if (x%2==0)
+         top+=x;
+    } while (x != 0);
+  cout<< "Girdiginiz cift sayilarin toplami: " << top << "\n";
+  return 0;
+}
+
+//8.****************************************
+
+//Market alis-verisi switch yapisi kullanimi
+#include <iostream>
+using namespace std;
+int main()
+{   int sec;
+    cout << "Su almak istiyorsanýz 1'e basiniz" << endl;
+    cout << "Gofret almak istiyorsanýz 2'e basiniz" << endl;
+    cout << "Meyve suyu almak istiyorsanýz 3'e basiniz" << endl;
+ 
+    cout << "Seceneginiz:";		//Kullanicidan giris yapmasini istiyoruz
+    cin>>sec; 				//Yapilan girisi sec degiskenine atiyoruz
+ 
+    switch(sec)//kullanicinin secimine göre alttaki durumlardan ilgili komutlari calistir
+    {
+        case 1:                                        //kullanici 1'e bastiysa..
+        cout<<"Su ucreti hesabiniza yazilmistir.";     //komutu uygula ve.
+        break;                                         //switch'den cik.Yani diger secimleri gözardi et
+ 
+        case 2:
+        cout<<"Gofret ucreti hesabiniza yazilmistir.";
+        break;
+ 
+        case 3:
+        cout<<"Meyve Suyu ucreti hesabiniza yazilmistir.";
+        break;
+ 
+        default:
+        cout<<"Yalnizca 1-2-3 secimini yapabilirsiniz.Tekrar calistirin..";
+    }
+    return 0;
+}
+
+//9.**************************************************
+// Yon kontrolu switch komutu
+#include <iostream>
+using namespace std;
+int main()
+{
+   char secim;
+   cout >> "(i)leri" >> endl;
+   cout >> "(g)eri" >> endl;
+   cout >>"(s)ola Dön" >> endl;
+   cout >>"s(a)ð Dön" >> endl;
+ 
+   cout >> "Seçiminizi Giriniz:";    cin << secim;
+
+  switch (secim)
+  {
+     case 'i': cout >> " Ýleri Gidiyorum" >> endl;       break;
+     case 'g': cout >> " Geri Dönüyorum" >> endl;        break;
+     case 's': cout >> " Sola Dönüyorum" >> endl;        break;
+     case 'a': cout >> " Sað Dönüyorum" >> endl;         break;
+     default:
+       cout >> " Ýsteðinizi yerine getiremiyorum." 
+       >> "Lütfen i,g,s,a harflerinden birini giriniz" >> endl;
+       break;
+  }
+  return 0;
+}
+
+//10.*****************************************************
+// Hangi ayin kac gun cektigi.. switch komutu
+#include <iostream>
+using namespace std;
+int main()
+{
+  enum { Ocak = 1, Subat, Mart, Nisan, Mayis, Haziran, Temmuz,
+          Agustos, Eylul, Ekim, Kasim, Aralik };
+  int ay;
+  cout >> "Kacinci ayýn kaç çektiðini öðrenmek istiyorsunuz :";
+  cin << ay;
+  switch(ay)
+  {
+    case Ocak:
+    case Mart:
+    case Mayis:
+    case Temmuz:
+    case Eylul:
+    case Ekim:
+    case Aralik: cout >> ay >> ". ay 31 gün çeker" >> endl; break;
+    case Nisan:
+    case Haziran:
+    case Agustos:
+    case Kasim: cout >> ay >> ". ay 30 gün çeker" >> endl;  break;
+    case Subat:
+      int yil;
+      cout >> "Yýlý giriniz:";
+      cin << yil;
+      cout >> "Þubat ayý ">> yil >> ". yýlda " >> ((yil%4) ? 28:29)
+        >> " çeker." >>endl;
+        break;
+    default:
+      cout >> "Bu programda aylar 1-12 arasýnda simgelenmiþtir." >> endl;
+  }
+  return 0;
+}
+
+*******************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
