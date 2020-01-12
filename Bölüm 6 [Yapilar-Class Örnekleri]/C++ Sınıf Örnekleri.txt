@@ -1,0 +1,236 @@
+#INCLUDE<IOSTREAM>
+#INCLUDE<CMATH>
+USING NAMESPACE STD;
+CLASS DENKLEM // SINIFIMIZI TANIMLIYORUZ
+{
+	PUBLIC:
+		INT A, B, C, X1, X2, D;
+		DENKLEM () {A=0, B=0, C=0, X1=0, X2=0, D=0;} // YAPICI FONKSIYON
+		VOID HESAPLA(DOUBLE A, DOUBLE B, DOUBLE C) // KÖKLERIN HESABI
+		{
+			D=B*B-4*A*C;
+			IF(D<0) COUT<<"KOK YOK";
+			ELSE IF(D==0)
+			{
+				X1=-B/2*A; COUT<<"TEK KOK VAR:"<<X1;
+			}
+			ELSE 
+			{
+				X1=-B-SQRT(D)/2*A; X2=-B+SQRT(D)/2*A;
+				COUT<<"X1="<<X1<<" X2="<<X2;
+		
+		}	}
+		};
+INT MAIN()
+{
+	DENKLEM D; // NESNEYI OLUÞTURUP A,B,C OKUTUYORUZ
+	COUT<<"A:"; CIN>>D.A;
+	COUT<<"B:"; CIN>>D.B;
+	COUT<<"C:"; CIN>>D.C;
+	D.HESAPLA(D.A,D.B,D.C); // D NESNESININ HESAPLA MEDOTUNU ÇALIÞTIRDIK
+	RETURN 0;
+}
+
+***********************************
+
+#include<iostream>
+#include<cstdio>
+using namespace std;
+ 
+int main()
+{
+	class personel
+	{
+	public:
+        char ad[30];
+        char soyad[30];
+        char tckn[12];
+	};
+personel fahrettin={"ali","soy","123456789"};
+ 
+personel osman;
+osman=fahrettin;
+ 
+cout<<osman.ad<<endl;
+cout<<osman.soyad<<endl;
+cout<<osman.tckn<<endl;
+ 
+return 0;
+}
+
+
+*******************************************
+
+#include<iostream>
+using namespace std;
+ 
+// Daire adýnda bir sýnýf oluþturuyoruz
+class Daire
+{
+	//burada tanýmlayacaklarýmýz sýnýf dýþýnda okunmaz
+	private:
+	//pi deðiþkenini sadece içerdeki kodlar görsün istiyorum
+	const double pi=3.14;
+	
+	//burada tanýmlananlar sýnýf dýþýnda da okunabilir
+	public:
+	//r deðiþkeni ve alan() fonksiyonuna dýþarýdan da eriþilebilir
+	double r;
+	double alan(double r)
+	{
+		return pi*r*r;
+	}			
+};
+int main()
+{
+	// Daire sýnýfýndan d adlý bir nesne oluþturuyorum
+	Daire d;
+	cout<<"yaricap giriniz:"; cin>>d.r;
+	cout<<"alan="<<d.alan(d.r);
+	
+	return 0;
+}
+
+************************************************************
+
+#include<iostream>
+using namespace std;
+ 
+class Daire
+{
+	public:
+		double r;
+		double alan(double r)
+		{
+			return 3.14*r*r;
+		}
+};
+int main()
+{
+	//d0,d1,d2,d3,d4 adlý 5 adet Daire nesnesi oluþturulacak
+	Daire d[5];
+	int i=0;
+	
+	//her nesneye r verisini atayalým
+	for(i=0; i<5; i++)
+	d[i].r=i;
+	
+	//her nesnenin alanýný yazdýralým
+	for(i=0; i<5; i++)
+	cout<<"d["<<i<<"] alani="<<d[i].alan(d[i].r)<<endl;
+	
+	return 0;
+}
+
+*******************************************************
+
+ndir hacmiC++
+
+#INCLUDE<IOSTREAM>
+USING NAMESPACE STD;
+
+CLASS SILINDIR
+{
+	PRIVATE:
+	DOUBLE R,H;
+	CONST DOUBLE PI=3.14;
+	
+	PUBLIC:
+	VOID OKU_R(DOUBLE YARICAP)
+	{
+		R=YARICAP;
+	}
+	VOID OKU_H(DOUBLE YUKSEKLIK)
+	{
+		H=YUKSEKLIK;
+	}
+	DOUBLE HACIM() {
+		RETURN PI*R*R*H; 
+	}
+};
+INT MAIN()
+{
+	SILINDIR S;
+	S.OKU_R(1);
+	S.OKU_H(2);
+	COUT<<"SILINDIRIN HACMI="<<S.HACIM();
+	RETURN 0;
+}
+
+#include<iostream>
+using namespace std;
+ 
+class silindir
+{
+	private:
+	double r,h;
+	const double pi=3.14;
+	
+	public:
+	void oku_r(double yaricap)
+	{
+		r=yaricap;
+	}
+	void oku_h(double yukseklik)
+	{
+		h=yukseklik;
+	}
+	double hacim() {
+		return pi*r*r*h; 
+	}
+}s;
+int main()
+{
+	silindir s;
+	s.oku_r(1);
+	s.oku_h(2);
+	cout<<"silindirin hacmi="<<s.hacim();
+	return 0;
+}
+
+
+*********************************************
+
+#INCLUDE<IOSTREAM>
+USING NAMESPACE STD;
+
+// DAIRE ADLI BIR SINIF OLUÞTURALIM
+CLASS DAIRE
+{
+	PUBLIC:
+	DOUBLE R;
+	VOID OKU(DOUBLE YARICAP) {R=YARICAP;}
+	DOUBLE ALAN(DOUBLE R) {RETURN 3.14*R*R;}
+};
+INT MAIN()
+{
+	//DAIRE SINIFINDAN D ADLI BIR NESNE OLUÞTURALIM
+	DAIRE D;
+	//D.R=2; // BIRINCI YÖNTEM
+	D.OKU(2); // IKINCI YÖNTEM
+	COUT<<"ALAN="<<D.ALAN(D.R);
+	
+	RETURN 0;
+}
+
+#include<iostream>
+using namespace std;
+ 
+// Daire adlý bir sýnýf oluþturalým
+class Daire
+{
+	public:
+	double r;
+	void oku(double yaricap) {r=yaricap;}
+	double alan(double r) {return 3.14*r*r;}
+};
+int main()
+{
+	//Daire sýnýfýndan d adlý bir nesne oluþturalým
+	Daire d;
+	//d.r=2; // birinci yöntem
+	d.oku(2); // ikinci yöntem
+	cout<<"alan="<<d.alan(d.r);
+	
+	return 0;
+}
